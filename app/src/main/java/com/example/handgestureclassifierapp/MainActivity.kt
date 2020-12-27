@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var btmap: Bitmap? = null
     private val REQUEST = 8293
     private val mInputSize = 200
-    private val mModelPath = "Gesture_recogniser_quantised_1.tflite"
+    private val mModelPath = "Gesture_recogniser_quantised.tflite"
     private val mLabelPath = "labels.txt"
     private lateinit var classifier: Classifier
     private var result: Any? = null
