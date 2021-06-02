@@ -1,10 +1,15 @@
 package com.example.handgestureclassifierapp
 
+import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
+import android.graphics.*
+import android.os.Build
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.provider.MediaStore
+import android.renderscript.Allocation
+import android.renderscript.Matrix4f
+import android.renderscript.RenderScript
+import android.renderscript.ScriptIntrinsicColorMatrix
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -17,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private var btmap: Bitmap? = null
     private val REQUEST = 8293
-    private val mInputSize = 200
+    private val mInputSize = 100
     private val mModelPath = "Gesture_recogniser_quantised.tflite"
     private val mLabelPath = "labels.txt"
     private lateinit var classifier: Classifier
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val results = classifier.recognizeImage(bitmap)
         return results.toString()
     }
+
 
     private fun initClassifier() {
         classifier = Classifier(assets, mModelPath, mLabelPath, mInputSize)
