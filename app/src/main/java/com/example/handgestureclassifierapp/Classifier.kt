@@ -55,10 +55,6 @@ class Classifier(assetManager: AssetManager, modelPath: String, labelPath: Strin
 
     }
 
-    /**
-     * Returns the result after running the recognition with the help of interpreter
-     * on the passed bitmap
-     */
     fun recognizeImage(bitmap: Bitmap): List<Recognition> {
         val scaledBitmap = Bitmap.createScaledBitmap(bitmap, inputSize, inputSize, false)
         val byteBuffer = convertBitmapToByteBuffer(scaledBitmap)
